@@ -1,6 +1,7 @@
 namespace PSRegedit
 {
     [Cmdlet(VerbsCommon.Set, "RegValue", SupportsShouldProcess = true)]
+    [Alias("New-RegValue")]
     [SupportedOSPlatform("windows")]
     public sealed class SetRegValueCmdlet : PSCmdlet
     {
@@ -17,7 +18,8 @@ namespace PSRegedit
         public object Value { get; set; } = new();
 
         [Parameter(Mandatory = true, Position = 4, HelpMessage = "Registry value type (e.g. String, DWord, QWord, Binary, MultiString, ExpandString).")]
-        public RegistryValueKind ValueKind { get; set; }
+        [Alias("ValueKind")]
+        public RegistryValueKind Type { get; set; }
 
         protected override void ProcessRecord()
         {
@@ -26,7 +28,7 @@ namespace PSRegedit
             if (ShouldProcess(target, "Set registry value"))
             {
                 var registry = new WinRegistry();
-                registry.SetValue(Hive, Path, Name, Value, ValueKind);
+                registry.SetValue(Hive, Path, Name, Value, Type);
             }
         }
     }

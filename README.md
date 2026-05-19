@@ -71,7 +71,7 @@ Import-Module PSRegedit
 Get-RegValue -Hive LocalMachine -Path "SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name "ProductName"
 
 # Write a value
-Set-RegValue -Hive CurrentUser -Path "SOFTWARE\MyApp" -Name "Theme" -Value "Dark" -ValueKind String
+Set-RegValue -Hive CurrentUser -Path "SOFTWARE\MyApp" -Name "Theme" -Value "Dark" -Type String
 
 # List subkeys
 Get-RegSubKeyNames -Hive LocalMachine -Path "SOFTWARE\Microsoft"
@@ -173,7 +173,7 @@ if ($entry.IsSet) {
 # Check if a value exists before acting
 $entry = Get-RegEntry -Hive CurrentUser -Path "SOFTWARE\MyApp" -Name "FirstRun"
 if (-not $entry.IsSet) {
-    Set-RegValue -Hive CurrentUser -Path "SOFTWARE\MyApp" -Name "FirstRun" -Value "0" -ValueKind DWord
+    Set-RegValue -Hive CurrentUser -Path "SOFTWARE\MyApp" -Name "FirstRun" -Value "0" -Type DWord
 }
 ```
 
@@ -225,22 +225,22 @@ Writes a value to the registry. The key path is created automatically if it does
 | `-Path` | `string` | Yes | Registry key path |
 | `-Name` | `string` | No | Value name. Omit or leave empty to write the `(Default)` value |
 | `-Value` | `object` | Yes | The value to write |
-| `-ValueKind` | `RegistryValueKind` | Yes | Registry data type (see [Registry Value Types](#registry-value-types)) |
+| `-Type` | `RegistryValueKind` | Yes | Registry data type (see [Registry Value Types](#registry-value-types)). Alias: `-ValueKind` |
 
 **Examples:**
 
 ```powershell
 # Write a string value
-Set-RegValue -Hive CurrentUser -Path "SOFTWARE\MyApp" -Name "Theme" -Value "Dark" -ValueKind String
+Set-RegValue -Hive CurrentUser -Path "SOFTWARE\MyApp" -Name "Theme" -Value "Dark" -Type String
 
 # Write a DWORD (integer)
-Set-RegValue -Hive CurrentUser -Path "SOFTWARE\MyApp" -Name "MaxRetries" -Value 3 -ValueKind DWord
+Set-RegValue -Hive CurrentUser -Path "SOFTWARE\MyApp" -Name "MaxRetries" -Value 3 -Type DWord
 
 # Write the (Default) value
-Set-RegValue -Hive ClassesRoot -Path "MyFileType" -Value "My Application File" -ValueKind String
+Set-RegValue -Hive ClassesRoot -Path "MyFileType" -Value "My Application File" -Type String
 
 # Preview without making changes
-Set-RegValue -Hive CurrentUser -Path "SOFTWARE\MyApp" -Name "Debug" -Value 1 -ValueKind DWord -WhatIf
+Set-RegValue -Hive CurrentUser -Path "SOFTWARE\MyApp" -Name "Debug" -Value 1 -Type DWord -WhatIf
 ```
 
 ---
@@ -338,7 +338,7 @@ The `-Hive` parameter accepts any `RegistryHive` enum value. PowerShell tab-comp
 
 ## <a id="registry-value-types" />Registry Value Types
 
-The `-ValueKind` parameter on `Set-RegValue` accepts any `RegistryValueKind` enum value.
+The `-Type` parameter on `Set-RegValue` accepts any `RegistryValueKind` enum value.
 
 | Enum Value | Registry Type | .NET Type | Description |
 |---|---|---|---|
