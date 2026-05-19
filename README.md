@@ -18,6 +18,7 @@ A PowerShell binary module for reading and writing the Windows Registry.
     - [Registry Hives](#registry-hives)
     - [Registry Value Types](#registry-value-types)
     - [WinRegistryEntry Object](#winregistryentry-object)
+- [Disclaimer](#disclaimer)
 - [Releases](#releases)
 
 ---
