@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37301.10 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "psregedit", "psregedit\psregedit.csproj", "{8E7FAE9B-5E89-4984-A079-424053176056}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E7FAE9B-5E89-4984-A079-424053176056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E7FAE9B-5E89-4984-A079-424053176056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E7FAE9B-5E89-4984-A079-424053176056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E7FAE9B-5E89-4984-A079-424053176056}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7BB4A65-F1EE-4D64-B211-51A33140F1F7}
+	EndGlobalSection
+EndGlobal

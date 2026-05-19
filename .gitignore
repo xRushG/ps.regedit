@@ -1,0 +1,9 @@
+.vs/
+.git/
+.github/
+.claude/
+.copilot/
+Module/
+
+*/obj/*
+*/bin/*

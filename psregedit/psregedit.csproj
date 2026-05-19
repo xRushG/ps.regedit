@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Management.Automation" Version="7.5.0" PrivateAssets="All" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="powershell -NoProfile -ExecutionPolicy RemoteSigned -File &quot;$(MSBuildProjectDirectory)\PostBuildEvent.ps1&quot; &quot;$(MSBuildProjectDirectory)&quot; $(Configuration) &quot;$(Platform)&quot;" />
+  </Target>
+
+</Project>
